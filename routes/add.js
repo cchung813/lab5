@@ -2,6 +2,15 @@ var data = require("../data.json");
 
 exports.addFriend = function(request, response) {    
 	// Your code goes here
-	console.log(data);
-	response.render('index.handlebars', data);
+
+	response.render('index', data);
+
+	var newFriend = {
+		"name": request.query.name,
+		"description": request.query.description,
+		"imageURL": 'http://lorempixel.com/400/400/people'
+	}
+	console.log(newFriend)
+	
+	data.friends.push(newFriend);
  }
